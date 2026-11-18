@@ -1,0 +1,425 @@
+@font-face {
+    font-family: 'Minecraft';
+    src: url('Minecraft.woff2') format('woff2'),
+         url('Minecraft.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+html, body {
+    min-height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 24px;
+    font-family: 'Minecraft', sans-serif;
+    color: #e4e4e7;
+}
+
+.hidden-checkbox {
+    display: none;
+}
+
+/* Fullscreen Sky Background (Day + Preloaded Night Layer) */
+.sky-bg {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: #0b0f19 url('minecraftsky.jpg') center / cover no-repeat;
+}
+
+.sky-bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #05070d url('MinecraftNightSky.jpg') center / cover no-repeat;
+    opacity: 0;
+    will-change: opacity;
+}
+
+/* Pure CSS Dark Mode Switch */
+#theme-toggle:checked ~ .sky-bg::before {
+    opacity: 1;
+}
+
+#theme-toggle:checked ~ .navbar,
+#theme-toggle:checked ~ .main-container .pic-box,
+#theme-toggle:checked ~ .main-container .details-box,
+#theme-toggle:checked ~ .main-container .player-info-box,
+#theme-toggle:checked ~ .main-container .info-box {
+    background-color: #2e2e32;
+}
+
+#theme-toggle:checked ~ .navbar .nav-btn,
+#theme-toggle:checked ~ .navbar .theme-toggle-btn {
+    background-color: #1f1f23;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    width: 100%;
+    padding: 12px 16px;
+    background-color: #555555;
+    border: 2px solid #000000;
+    border-radius: 8px;
+    box-shadow: none;
+}
+
+.nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.nav-btn {
+    padding: 8px 16px;
+    background-color: #3f3f46;
+    color: #ffffff;
+    border: 2px solid #000000;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: normal;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    -webkit-text-stroke: 2px #000000;
+    paint-order: stroke fill;
+    transition: transform 0.1s ease;
+}
+
+.nav-btn:active {
+    transform: translateY(2px);
+}
+
+.theme-toggle-btn {
+    padding: 6px;
+    background-color: #3f3f46;
+    border: 2px solid #000000;
+    border-radius: 6px;
+    cursor: pointer;
+    line-height: 0;
+    transition: transform 0.1s ease;
+}
+
+.theme-toggle-btn img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    image-rendering: pixelated;
+}
+
+.icon-sun {
+    display: block;
+}
+
+.icon-moon {
+    display: none;
+}
+
+#theme-toggle:checked ~ .navbar .icon-sun {
+    display: none;
+}
+
+#theme-toggle:checked ~ .navbar .icon-moon {
+    display: block;
+}
+
+.theme-toggle-btn:hover {
+    transform: scale(1.06);
+}
+
+.theme-toggle-btn:active {
+    transform: translateY(2px);
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    max-width: 700px;
+}
+
+.profile-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+}
+
+.pic-box {
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+    padding: 20px;
+    background-color: #555555;
+    border: 2px solid #000000;
+    border-radius: 8px;
+    box-shadow: none;
+}
+
+.profile-pic {
+    width: 280px;
+    height: 280px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    background-color: #555555;
+    border: 2px solid #000000;
+    border-radius: 6px;
+}
+
+/* Pure CSS Picture Toggle */
+.pic-mc {
+    display: block;
+}
+
+.pic-real {
+    display: none;
+}
+
+#pic-toggle:checked ~ .pic-mc {
+    display: none;
+}
+
+#pic-toggle:checked ~ .pic-real {
+    display: block;
+}
+
+.pic-toggle-btn {
+    padding: 0;
+    background: transparent;
+    border: 2px solid #000000;
+    cursor: pointer;
+    line-height: 0;
+    transition: transform 0.1s ease;
+}
+
+.pic-toggle-btn img {
+    width: 40px;
+    height: auto;
+    display: block;
+    image-rendering: pixelated;
+}
+
+.pic-toggle-btn:hover {
+    transform: scale(1.06);
+}
+
+.pic-toggle-btn:active {
+    transform: translateY(2px);
+}
+
+.details-box {
+    width: 100%;
+    padding: 24px 28px;
+    background-color: #555555;
+    border: 2px solid #000000;
+    border-radius: 8px;
+    box-shadow: none;
+    text-align: center;
+}
+
+.details-box h1 {
+    margin: 0 0 12px;
+    font-size: 24px;
+    font-weight: normal;
+    letter-spacing: 1px;
+    color: #ffffff;
+    -webkit-text-stroke: 3px #000000;
+    paint-order: stroke fill;
+}
+
+.details-box p {
+    margin: 0 0 10px;
+    font-size: 16px;
+    line-height: 1.7;
+    letter-spacing: 0.5px;
+    color: #e4e4e7;
+    -webkit-text-stroke: 2px #000000;
+    paint-order: stroke fill;
+}
+
+.details-box p:last-child {
+    margin-bottom: 0;
+}
+
+.details-box a,
+.info-box a {
+    color: #55ff55;
+    text-decoration: none;
+}
+
+.details-box a:hover,
+.info-box a:hover {
+    text-decoration: underline;
+}
+
+/* Player Info Box below Details */
+.player-info-box {
+    width: 100%;
+    padding: 20px 24px;
+    background-color: #555555;
+    border: 2px solid #000000;
+    border-radius: 8px;
+    box-shadow: none;
+}
+
+.player-info-box h2 {
+    margin: 0 0 14px;
+    font-size: 20px;
+    font-weight: normal;
+    letter-spacing: 0.5px;
+    color: #ffffff;
+    -webkit-text-stroke: 2.5px #000000;
+    paint-order: stroke fill;
+}
+
+.level-row,
+.focus-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    color: #e4e4e7;
+    -webkit-text-stroke: 2px #000000;
+    paint-order: stroke fill;
+}
+
+.highlight-green {
+    color: #55ff55;
+}
+
+.xp-percent {
+    font-size: 14px;
+    color: #a1a1aa;
+}
+
+/* Segmented Minecraft-Style XP Bar */
+.xp-bar {
+    position: relative;
+    width: 100%;
+    height: 18px;
+    margin: 8px 0 16px;
+    background-color: #1f1f23;
+    border: 2px solid #000000;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.xp-bar::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+        to right,
+        transparent 0,
+        transparent calc(10% - 2px),
+        #000000 calc(10% - 2px),
+        #000000 10%
+    );
+    pointer-events: none;
+}
+
+@keyframes fillXP {
+    from {
+        width: 0%;
+    }
+    to {
+        width: 38%;
+    }
+}
+
+.xp-bar-fill {
+    height: 100%;
+    width: 38%;
+    background-color: #55ff55;
+    animation: fillXP 0.8s ease-out;
+}
+
+/* Two separate rectangles below Player Info */
+.info-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    width: 100%;
+}
+
+.info-box {
+    padding: 20px 24px;
+    background-color: #555555;
+    border: 2px solid #000000;
+    border-radius: 8px;
+    box-shadow: none;
+}
+
+.box-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.box-icon {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    flex-shrink: 0;
+    image-rendering: pixelated;
+}
+
+.box-header h2 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: normal;
+    letter-spacing: 0.5px;
+    color: #ffffff;
+    -webkit-text-stroke: 2.5px #000000;
+    paint-order: stroke fill;
+}
+
+.info-box ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.info-box li {
+    margin-bottom: 8px;
+    font-size: 15px;
+    line-height: 1.6;
+    letter-spacing: 0.5px;
+    color: #e4e4e7;
+    -webkit-text-stroke: 2px #000000;
+    paint-order: stroke fill;
+}
+
+.info-box li:last-child {
+    margin-bottom: 0;
+}
+
+@media (max-width: 600px) {
+    .info-row {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Personal Website</title>
+    <link rel="stylesheet" href="Main.css">
+</head>
+<body>
+
+    <input type="checkbox" id="theme-toggle" class="hidden-checkbox">
+    <div class="sky-bg"></div>
+
+    <nav class="navbar">
+        <div class="nav-links">
+            <a href="#home" class="nav-btn">Home</a>
+            <a href="#about" class="nav-btn">About</a>
+            <a href="#favorites" class="nav-btn">Favorites</a>
+            <a href="#gallery" class="nav-btn">Gallery</a>
+            <a href="#contact" class="nav-btn">Contact</a>
+        </div>
+
+        <label for="theme-toggle" class="theme-toggle-btn" title="Toggle Light / Dark Mode">
+            <img src="Sun.png" alt="Light Mode" class="icon-sun">
+            <img src="Moon.png" alt="Dark Mode" class="icon-moon">
+        </label>
+    </nav>
+
+    <div class="main-container">
+        <div class="profile-section" id="home">
+            <div class="pic-box">
+                <input type="checkbox" id="pic-toggle" class="hidden-checkbox">
+                <img src="JustineMC.png" alt="Justine Minecraft Avatar" class="profile-pic pic-mc">
+                <img src="Justine1x1.jpg" alt="Justine Photo" class="profile-pic pic-real">
+                <label for="pic-toggle" class="pic-toggle-btn" title="Switch Picture">
+                    <img src="Toggle.png" alt="Switch Picture">
+                </label>
+            </div>
+
+            <div class="details-box">
+                <h1>Justine M. Estavillo</h1>
+                <p>Student at <a href="https://www.ciit.edu.ph/" target="_blank" rel="noopener noreferrer">CIIT College of Innovation and Integrated Technology</a>.</p>
+                <p>Interested in game development, animation, technology, and gaming.</p>
+            </div>
+
+            <div class="player-info-box">
+                <h2>Player Info</h2>
+
+                <div class="level-row">
+                    <span>Level: <span class="highlight-green">18</span></span>
+                    <span class="xp-percent">38%</span>
+                </div>
+                <div class="xp-bar" title="Progress to July 2">
+                    <div class="xp-bar-fill"></div>
+                </div>
+
+                <div class="focus-row">
+                    <span>Focus:</span>
+                    <span>Game Dev and Animation</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-row" id="about">
+            <div class="info-box">
+                <div class="box-header">
+                    <img src="Heart.png" alt="Likes" class="box-icon">
+                    <h2>What I Like</h2>
+                </div>
+                <ul>
+                    <li>Listening to music</li>
+                    <li>Singing</li>
+                    <li>Playing games</li>
+                    <li>Keeping things simple</li>
+                    <li>Watching random videos</li>
+                    <li>Exploring</li>
+                    <li>Giving random ideas</li>
+                    <li>Spending time with friends</li>
+                    <li>Joking a lot</li>
+                    <li>My <a href="404 NOT FOUND.html">girlfriend</a></li>
+                </ul>
+            </div>
+
+            <div class="info-box">
+                <div class="box-header">
+                    <img src="Weakness.png" alt="Weaknesses" class="box-icon">
+                    <h2>Weaknesses</h2>
+                </div>
+                <ul>
+                    <li>Overthinking</li>
+                    <li>Staying up too late</li>
+                    <li>Public speaking</li>
+                    <li>Disorganized</li>
+                    <li>Procrastination</li>
+                    <li>Overwhelmed easily</li>
+                    <li>Sensitive</li>
+                    <li>Drawing</li>
+                    <li>Forget things easily</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

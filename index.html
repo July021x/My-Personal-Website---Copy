@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Personal Website</title>
+    <link rel="stylesheet" href="Loading.css">
+</head>
+<body>
+    <div class="loading-container" id="loaderBox">
+        <div class="loading-bar">
+            <div class="bar-fill"></div>
+        </div>
+        <h1>Welcome to My World</h1>
+        <p>Loading your experience...</p>
+    </div>
+
+    <button class="start-btn" id="startBtn" onclick="window.location.href='main.html'">Start</button>
+
+    <script>
+        const loaderBox = document.getElementById('loaderBox');
+        const startBtn = document.getElementById('startBtn');
+
+        setTimeout(() => {
+            loaderBox.classList.add('fade-out');
+
+            setTimeout(() => {
+                loaderBox.style.display = 'none';
+                startBtn.classList.add('show');
+            }, 600);
+        }, 3000);
+    </script>
+
+</body>
+</html>

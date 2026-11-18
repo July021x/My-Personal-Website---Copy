@@ -1,0 +1,104 @@
+@font-face {
+            font-family: 'Minecraft';
+            src: url('Minecraft.woff2') format('woff2'),
+                 url('Minecraft.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+
+        body {
+            display: grid;
+            place-items: center;
+            background: #ffffff url('minecraftsky.jpg') center / cover no-repeat;
+            font-family: 'Minecraft', sans-serif;
+            overflow: hidden;
+        }
+
+        .loading-container,
+        .start-btn {
+            grid-area: 1 / 1;
+        }
+
+        .loading-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px;
+            background-color: #555555;
+            border: 2px solid #000000;
+            border-radius: 8px;
+            box-shadow: none;
+            color: #e4e4e7;
+            text-align: center;
+            transition: opacity 0.6s ease;
+        }
+
+        .loading-container.fade-out {
+            opacity: 0;
+        }
+
+        .loading-container h1 {
+            margin: 0 0 8px;
+            font-size: 24px;
+            font-weight: normal;
+        }
+
+        .loading-container p {
+            margin: 0;
+            color: #a1a1aa;
+            font-size: 14px;
+            font-weight: normal;
+        }
+
+        .loading-bar {
+            width: 240px;
+            height: 6px;
+            background-color: #27272a;
+            border-radius: 3px;
+            overflow: hidden;
+            margin-bottom: 24px;
+        }
+
+        .bar-fill {
+            width: 0%;
+            height: 100%;
+            background-color: #3b8526;
+            border-radius: 3px;
+            animation: fillProgress 3s linear forwards;
+        }
+
+        @keyframes fillProgress {
+            to { width: 100%; }
+        }
+
+        .start-btn {
+            visibility: hidden;
+            opacity: 0;
+            padding: 16px 48px;
+            background-color: #555555;
+            color: #ffffff;
+            font-family: inherit;
+            font-size: 18px;
+            font-weight: normal;
+            border: 2px solid #000000;
+            border-radius: 8px;
+            box-shadow: none;
+            cursor: pointer;
+            transition: opacity 0.6s ease, background-color 0.2s ease, transform 0.1s ease;
+        }
+
+        .start-btn.show {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .start-btn:hover {
+            background-color: #757575;
+            transform: scale(1.05);
+        }
